@@ -13,8 +13,30 @@ import javax.swing.ImageIcon;
  * @author carlos
  */
 public class Principal extends javax.swing.JFrame {
-        
+        int estado=0;
+        String camino="";
         Grafo paginas=new Grafo();
+        NodoGrafo Depor;
+        NodoGrafo Gourmet;
+        NodoGrafo Spotify;
+        NodoGrafo El_comercio;
+        NodoGrafo La_republica;
+        NodoGrafo Libero;
+        NodoGrafo Facebook;
+        NodoGrafo ATV;
+        //Estadisticas
+        double EDepor=0;
+        double EGourmet=0;
+        double ESpotify=0;
+        double EEl_comercio=0;
+        double ELa_republica=0;
+        double ELibero=0;
+        double EFacebook=0;
+        double EATV=0;
+        double ETotal=0;
+      
+       
+                
         
        /**
      * Creates new form Principal
@@ -23,14 +45,17 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         
         jLabel2.setText("Bienvenido "+usuario);
-        paginas.insertarNodo("Depor");
-        paginas.insertarNodo("Gourmet");
-        paginas.insertarNodo("Spotify");
-        paginas.insertarNodo("El comercio");
-        paginas.insertarNodo("La Republica");
-        paginas.insertarNodo("Libero");
-        paginas.insertarNodo("Facebook");
-        paginas.insertarNodo("ATV");
+        Depor=paginas.insertarNodo("Depor");
+        Gourmet=paginas.insertarNodo("Gourmet");
+        Spotify=paginas.insertarNodo("Spotify");
+        El_comercio=paginas.insertarNodo("El comercio");
+        La_republica=paginas.insertarNodo("La Republica");
+        Libero=paginas.insertarNodo("Libero");
+        Facebook=paginas.insertarNodo("Facebook");
+        ATV=paginas.insertarNodo("ATV");
+        
+        
+        
     }
 
     /**
@@ -45,14 +70,16 @@ public class Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,15 +89,25 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
-        jButton7.setForeground(new java.awt.Color(0, 51, 204));
-        jButton7.setText("El Comercio");
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setForeground(new java.awt.Color(0, 51, 204));
+        jButton4.setText("El Comercio");
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton8.setForeground(new java.awt.Color(0, 51, 204));
         jButton8.setText("ATV");
         jButton8.setContentAreaFilled(false);
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton1.setForeground(new java.awt.Color(0, 51, 204));
         jButton1.setText("Depor");
@@ -86,26 +123,65 @@ public class Principal extends javax.swing.JFrame {
         jButton6.setText("Libero");
         jButton6.setContentAreaFilled(false);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton2.setForeground(new java.awt.Color(0, 51, 204));
         jButton2.setText("Gourmet");
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton5.setForeground(new java.awt.Color(0, 51, 204));
         jButton5.setText("La Republica");
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton7.setForeground(new java.awt.Color(0, 51, 204));
+        jButton7.setText("Facebook");
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton3.setForeground(new java.awt.Color(0, 51, 204));
-        jButton3.setText("Facebook");
+        jButton3.setText("Spotify");
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        jButton4.setForeground(new java.awt.Color(0, 51, 204));
-        jButton4.setText("Spotify");
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton9.setText("Mostrar recorrido");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Mostrar Estadisticas");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,20 +189,20 @@ public class Principal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
+                                .addComponent(jButton8))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton7))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,48 +212,62 @@ public class Principal extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton5)))
                         .addGap(18, 18, 18))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addComponent(jButton9)
+                .addGap(35, 35, 35)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 62, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(77, 77, 77))
+                .addGap(139, 139, 139))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3)
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton6))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton7))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jButton5))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(jButton6))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3)
+                            .addComponent(jButton7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton8)
+                            .addComponent(jButton4))
+                        .addGap(47, 87, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(191, 191, 191)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton9)
+                            .addComponent(jButton10))
+                        .addGap(37, 37, 37))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -185,10 +275,322 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        NodoGrafo buscar=paginas.buscarNodo("ATV");
-        System.out.print(buscar.dato);
-      
+       jButton1.setEnabled(false);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/logo_depor.png")));
+       jPanel1.setBackground(new java.awt.Color(135, 199, 123));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google, Depor);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet, Depor);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify, Depor);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio, Depor);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica, Depor);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero, Depor);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook, Depor);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV, Depor);
+               break;
+       }
+       
+       camino=camino+"Depor->";
+       EDepor++;
+       ETotal++;
+       estado=1;
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(false);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/gourmet.png")));
+       jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google, Gourmet);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor, Gourmet);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify, Gourmet);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio,Gourmet);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica, Gourmet);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero, Gourmet);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook, Gourmet);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV,Gourmet);
+               break;
+       }
+       
+       camino=camino+"Gourmet->";
+       
+       estado=2;
+       EGourmet++;
+       ETotal++;
+       
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(false);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/spotify.png")));
+       jPanel1.setBackground(new java.awt.Color(29, 214, 95));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google, Spotify);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor, Spotify);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet, Spotify);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio,Spotify);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica, Spotify);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero, Spotify);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook, Spotify);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV,Spotify);
+               break;
+       }
+       
+       camino=camino+"Spotify->";
+       
+       estado=3;
+       ESpotify++;
+       ETotal++;
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(false);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/El_comercio.png")));
+       jPanel1.setBackground(new java.awt.Color(255, 201, 41));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google, El_comercio);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor, El_comercio);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet, El_comercio);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify,El_comercio);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica, El_comercio);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero,El_comercio);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook, El_comercio);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV,El_comercio);
+               break;
+       }
+       
+       camino=camino+"El comercio->";
+      
+       estado=4;
+       EEl_comercio++;
+       ETotal++;
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(false);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/La_republica.png")));
+       jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google,La_republica);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor, La_republica);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet, La_republica);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify,La_republica);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio, La_republica);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero,La_republica);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook, La_republica);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV,La_republica);
+               break;
+       }
+       
+       camino=camino+"La Republica->";
+       
+       estado=5;
+       ELa_republica++;
+       ETotal++;
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(false);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/Libero.png")));
+       jPanel1.setBackground(new java.awt.Color(219, 34, 74));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google,Libero);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor, Libero);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet,Libero);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify,Libero);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio,Libero);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica,Libero);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook,Libero);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV,Libero);
+               break;
+       }
+       
+       camino=camino+"Libero->";
+       
+       estado=6;
+       ELibero++;
+       ETotal++;
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(false);
+       jButton8.setEnabled(true);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/Facebook.png")));
+       jPanel1.setBackground(new java.awt.Color(59, 89, 152));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google,Facebook);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor,Facebook);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet,Facebook);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify,Facebook);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio,Facebook);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica,Facebook);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero,Facebook);
+               break;
+           case(8):paginas.GenerarRecorrido(ATV,Facebook);
+               break;
+       }
+       
+       camino=camino+"Facebook->";
+       
+       estado=7;
+       EFacebook++;
+       ETotal++;
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+       jButton1.setEnabled(true);
+       jButton2.setEnabled(true);
+       jButton3.setEnabled(true);
+       jButton4.setEnabled(true);
+       jButton5.setEnabled(true);
+       jButton6.setEnabled(true);
+       jButton7.setEnabled(true);
+       jButton8.setEnabled(false);
+       jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ed2/ATV.png")));
+       jPanel1.setBackground(new java.awt.Color(25, 77, 156));
+       switch(estado){
+           case(0):paginas.GenerarRecorrido(paginas.Google,ATV);
+               break;
+           case(1):paginas.GenerarRecorrido(Depor,ATV);
+               break;
+           case(2):paginas.GenerarRecorrido(Gourmet,ATV);
+               break;
+           case(3):paginas.GenerarRecorrido(Spotify,ATV);
+               break;
+           case(4):paginas.GenerarRecorrido(El_comercio,ATV);
+               break;
+           case(5):paginas.GenerarRecorrido(La_republica,ATV);
+               break;
+           case(6):paginas.GenerarRecorrido(Libero,ATV);
+               break;
+           case(7):paginas.GenerarRecorrido(Facebook,ATV);
+               break;
+       }
+       
+       camino=camino+"ATV->";
+       
+       estado=8;
+       EATV++;
+       ETotal++;
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        VentanaCamino mostrar=new VentanaCamino(camino);
+        mostrar.setVisible(true);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        
+        VentanaEstadisticas ver=new VentanaEstadisticas(EDepor*100/ETotal,EGourmet*100/ETotal,ESpotify*100/ETotal,
+                                                        EEl_comercio*100/ETotal,ELa_republica*100/ETotal,ELibero*100/ETotal,
+                                                        EFacebook*100/ETotal,EATV*100/ETotal);
+        ver.setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
  
             
@@ -198,6 +600,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -205,6 +608,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

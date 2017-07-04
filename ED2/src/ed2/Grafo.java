@@ -18,7 +18,7 @@ public class Grafo {
         this.Google.ady=null;
     }
 
-    public void insertarNodo(String nuevo){
+    public NodoGrafo insertarNodo(String nuevo){
         NodoGrafo raiz=Google;
         NodoGrafo inserta=new NodoGrafo(nuevo);
         if(raiz.sgte==null){
@@ -31,14 +31,17 @@ public class Grafo {
             }
             raiz.sgte=inserta;
         }
+        return inserta;
     }
-    public void muestraNodos(){
+    public String muestraNodos(){
+        String cadena="";
         NodoGrafo raiz=Google;
         while(raiz.sgte!=null){
-            System.out.print(raiz.dato+"->");
+            cadena=cadena+raiz.dato+"("+muestraAdy(raiz)+")"+"->";
             raiz=raiz.sgte;
         }
-        System.out.print(raiz.dato+"->");
+        cadena=cadena+raiz.dato+"("+muestraAdy(raiz)+")"+"->";
+        return cadena;
     }
     public NodoGrafo buscarNodo(String nombre){
         NodoGrafo buscado=Google;
@@ -54,6 +57,53 @@ public class Grafo {
         }
         return buscado;
     }
+    public boolean ExisteAdy(NodoGrafo A,String nombre){
+        
+        NodoAdyacente m=A.ady;
+        boolean encontrado=false;
+        while(m.sgte!=null || encontrado==true){
+            if(m.dat==nombre){
+                encontrado=true;
+            }else{
+                encontrado=false;
+                m=m.sgte;
+            }
+            
+        }
+        return encontrado;
+    }
+    public void GenerarRecorrido(NodoGrafo A, NodoGrafo B){
+        
+        NodoAdyacente raiz=A.ady;
+        NodoAdyacente inserta=new NodoAdyacente(B.dato);
+        if(A.ady==null){
+            A.ady=inserta;
+        }
+        else if(ExisteAdy(A,B.dato)){
+           System.out.println("Recorrido ya existe");
+        }else{
+            while(raiz.sgte!=null){
+                raiz=raiz.sgte;
+            }
+            raiz.sgte=inserta;
+        }
+    }
+
+    public String muestraAdy(NodoGrafo raiz) {
+        String cadena="";
+        NodoAdyacente m=raiz.ady;
+        if(m==null){
+            cadena="no hay";
+        }else{
+            while(m.sgte!=null){
+                cadena=cadena+m.dat+"->";
+                m=m.sgte;
+            }
+            cadena=cadena+m.dat+"->";
+        }
+        return cadena;
+    }
+    
             
     
 }

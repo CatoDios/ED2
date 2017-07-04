@@ -13,8 +13,8 @@ public class NodoAdyacente {
     String dat;
     NodoAdyacente sgte=null;
     
-    /*public NodoAdyacente(String nombre){
+    public NodoAdyacente(String nombre){
         this.dat=nombre;
-        this.sgte=null;
-    }*/
+        
+    }
 }
