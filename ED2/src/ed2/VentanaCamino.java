@@ -16,6 +16,7 @@ public class VentanaCamino extends javax.swing.JFrame {
      */
     public VentanaCamino(String camino) {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         cadena=camino;
         this.setTitle("Camino");
         jTextArea1.setText(camino);

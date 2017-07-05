@@ -155,6 +155,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             Principal ventanaPrincipal=new Principal(nombre);
         
             ventanaPrincipal.setVisible(true);
+            this.setVisible(false);
        }
    
       

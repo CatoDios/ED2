@@ -20,6 +20,8 @@ public class Registrar extends javax.swing.JFrame {
      */
     public Registrar() {
         initComponents();
+        
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
 
     /**

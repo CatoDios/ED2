@@ -23,6 +23,7 @@ public class VentanaEstadisticas extends javax.swing.JFrame {
      */
     public VentanaEstadisticas(double a1,double a2,double a3,double a4,double a5,double a6,double a7,double a8) {
         initComponents();
+        this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         jLabel9.setText(String.valueOf(a1));
         jLabel10.setText(String.valueOf(a2));
         jLabel11.setText(String.valueOf(a3));
